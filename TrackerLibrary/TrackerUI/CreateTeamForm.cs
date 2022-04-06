@@ -127,5 +127,18 @@ namespace TrackerUI
                 MessageBox.Show("Please select a user from the list to remove.");
             }
         }
+
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel t = new TeamModel();
+
+            t.TeamName = teamnameValue.Text;
+            t.TeamMembers = selectedTeamMembers;
+
+            GlobalConfig.Connection.CreateTeam(t);
+
+            MessageBox.Show($"The team {t.TeamName} was successfully created!");
+            //TODO - if we aren't closing form after creation, reset the form
+        }
     }
 }
