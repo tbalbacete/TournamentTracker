@@ -8,11 +8,14 @@ namespace TrackerLibrary.Models
 {
     public class MatchupEntryModel
     {
+        public int Id { get; set; }
+
+        public int TeamCompetingId { get; set; }
+
         /// <summary>
         /// Represents one team in the matchup
         /// </summary>
         public TeamModel TeamCompeting { get; set; }
-        /// <summary>
         /// Represents the score for this team
         /// </summary>
         public double Score { get; set; }
@@ -20,6 +23,7 @@ namespace TrackerLibrary.Models
         /// Represents the matchup that this team came
         /// from as the winner
         /// </summary>
+        public int ParentMatchupId { get; set; }
         public MatchupModel ParentMatchup { get; set; }
 
 

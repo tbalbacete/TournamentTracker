@@ -38,7 +38,7 @@
             this.teamOneName = new System.Windows.Forms.Label();
             this.teamOneScoreLabel = new System.Windows.Forms.Label();
             this.teamOneScoreValue = new System.Windows.Forms.TextBox();
-            this.teamTwoScoreText = new System.Windows.Forms.TextBox();
+            this.teamTwoScoreValue = new System.Windows.Forms.TextBox();
             this.teamTwoScoreLabel = new System.Windows.Forms.Label();
             this.teamTwoName = new System.Windows.Forms.Label();
             this.versusLabel = new System.Windows.Forms.Label();
@@ -74,10 +74,9 @@
             this.roundLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.roundLabel.Location = new System.Drawing.Point(42, 139);
             this.roundLabel.Name = "roundLabel";
-            this.roundLabel.Size = new System.Drawing.Size(117, 46);
+            this.roundLabel.Size = new System.Drawing.Size(115, 45);
             this.roundLabel.TabIndex = 2;
             this.roundLabel.Text = "Round";
-            this.roundLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // roundDropDown
             // 
@@ -86,6 +85,7 @@
             this.roundDropDown.Name = "roundDropDown";
             this.roundDropDown.Size = new System.Drawing.Size(257, 45);
             this.roundDropDown.TabIndex = 3;
+            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
             // unplayedonlyCheckbox
             // 
@@ -96,10 +96,11 @@
             this.unplayedonlyCheckbox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.unplayedonlyCheckbox.Location = new System.Drawing.Point(165, 205);
             this.unplayedonlyCheckbox.Name = "unplayedonlyCheckbox";
-            this.unplayedonlyCheckbox.Size = new System.Drawing.Size(257, 50);
+            this.unplayedonlyCheckbox.Size = new System.Drawing.Size(253, 49);
             this.unplayedonlyCheckbox.TabIndex = 4;
             this.unplayedonlyCheckbox.Text = "Unplayed Only";
             this.unplayedonlyCheckbox.UseVisualStyleBackColor = false;
+            this.unplayedonlyCheckbox.CheckedChanged += new System.EventHandler(this.unplayedonlyCheckbox_CheckedChanged);
             // 
             // matchupListBox
             // 
@@ -110,6 +111,7 @@
             this.matchupListBox.Name = "matchupListBox";
             this.matchupListBox.Size = new System.Drawing.Size(380, 372);
             this.matchupListBox.TabIndex = 5;
+            this.matchupListBox.SelectedIndexChanged += new System.EventHandler(this.matchupListBox_SelectedIndexChanged);
             // 
             // teamOneName
             // 
@@ -118,7 +120,7 @@
             this.teamOneName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.teamOneName.Location = new System.Drawing.Point(597, 297);
             this.teamOneName.Name = "teamOneName";
-            this.teamOneName.Size = new System.Drawing.Size(208, 46);
+            this.teamOneName.Size = new System.Drawing.Size(203, 45);
             this.teamOneName.TabIndex = 6;
             this.teamOneName.Text = "<team one>";
             // 
@@ -129,7 +131,7 @@
             this.teamOneScoreLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.teamOneScoreLabel.Location = new System.Drawing.Point(597, 356);
             this.teamOneScoreLabel.Name = "teamOneScoreLabel";
-            this.teamOneScoreLabel.Size = new System.Drawing.Size(104, 46);
+            this.teamOneScoreLabel.Size = new System.Drawing.Size(100, 45);
             this.teamOneScoreLabel.TabIndex = 7;
             this.teamOneScoreLabel.Text = "Score";
             // 
@@ -140,13 +142,12 @@
             this.teamOneScoreValue.Size = new System.Drawing.Size(125, 43);
             this.teamOneScoreValue.TabIndex = 8;
             // 
-            // teamTwoScoreText
+            // teamTwoScoreValue
             // 
-            this.teamTwoScoreText.Location = new System.Drawing.Point(707, 572);
-            this.teamTwoScoreText.Name = "teamTwoScoreText";
-            this.teamTwoScoreText.Size = new System.Drawing.Size(125, 43);
-            this.teamTwoScoreText.TabIndex = 11;
-            this.teamTwoScoreText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.teamTwoScoreValue.Location = new System.Drawing.Point(707, 572);
+            this.teamTwoScoreValue.Name = "teamTwoScoreValue";
+            this.teamTwoScoreValue.Size = new System.Drawing.Size(125, 43);
+            this.teamTwoScoreValue.TabIndex = 11;
             // 
             // teamTwoScoreLabel
             // 
@@ -155,10 +156,9 @@
             this.teamTwoScoreLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.teamTwoScoreLabel.Location = new System.Drawing.Point(597, 569);
             this.teamTwoScoreLabel.Name = "teamTwoScoreLabel";
-            this.teamTwoScoreLabel.Size = new System.Drawing.Size(104, 46);
+            this.teamTwoScoreLabel.Size = new System.Drawing.Size(100, 45);
             this.teamTwoScoreLabel.TabIndex = 10;
             this.teamTwoScoreLabel.Text = "Score";
-            this.teamTwoScoreLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // teamTwoName
             // 
@@ -167,10 +167,9 @@
             this.teamTwoName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.teamTwoName.Location = new System.Drawing.Point(597, 510);
             this.teamTwoName.Name = "teamTwoName";
-            this.teamTwoName.Size = new System.Drawing.Size(208, 46);
+            this.teamTwoName.Size = new System.Drawing.Size(202, 45);
             this.teamTwoName.TabIndex = 9;
             this.teamTwoName.Text = "<team two>";
-            this.teamTwoName.Click += new System.EventHandler(this.label2_Click);
             // 
             // versusLabel
             // 
@@ -179,7 +178,7 @@
             this.versusLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.versusLabel.Location = new System.Drawing.Point(670, 447);
             this.versusLabel.Name = "versusLabel";
-            this.versusLabel.Size = new System.Drawing.Size(87, 46);
+            this.versusLabel.Size = new System.Drawing.Size(85, 45);
             this.versusLabel.TabIndex = 12;
             this.versusLabel.Text = "-VS-";
             // 
@@ -197,6 +196,7 @@
             this.scoreButton.TabIndex = 13;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
+            this.scoreButton.Click += new System.EventHandler(this.scoreButton_Click);
             // 
             // TournamentViewerForm
             // 
@@ -206,7 +206,7 @@
             this.ClientSize = new System.Drawing.Size(1080, 717);
             this.Controls.Add(this.scoreButton);
             this.Controls.Add(this.versusLabel);
-            this.Controls.Add(this.teamTwoScoreText);
+            this.Controls.Add(this.teamTwoScoreValue);
             this.Controls.Add(this.teamTwoScoreLabel);
             this.Controls.Add(this.teamTwoName);
             this.Controls.Add(this.teamOneScoreValue);
@@ -220,7 +220,7 @@
             this.Controls.Add(this.headerLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "TournamentViewerForm";
             this.Text = "Tournament Viewer";
             this.ResumeLayout(false);
@@ -239,7 +239,7 @@
         private Label teamOneName;
         private Label teamOneScoreLabel;
         private TextBox teamOneScoreValue;
-        private TextBox teamTwoScoreText;
+        private TextBox teamTwoScoreValue;
         private Label teamTwoScoreLabel;
         private Label teamTwoName;
         private Label versusLabel;
